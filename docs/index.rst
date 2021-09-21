@@ -30,7 +30,7 @@ Practical step-by-step guides for the more experienced user.
     :caption: How-to Guides
     :hidden:
 
-    how-to/accomplish-a-task
+    how-to/configure-the-theme
 
 .. rst-class:: columns
 
@@ -43,7 +43,7 @@ Explanation of how the library works and why it works that way.
     :caption: Explanations
     :hidden:
 
-    explanations/why-is-something-so
+    explanations/how-it-works
 
 .. rst-class:: columns
 
@@ -56,8 +56,8 @@ Technical reference material, for classes, methods, APIs, commands, and contribu
     :caption: Reference
     :hidden:
 
-    reference/api
     reference/contributing
+    Changelog <https://github.com/dls-controls/{{ cookiecutter.project_name }}/blob/master/CHANGELOG.rst>
 
 .. rst-class:: endcolumns
 

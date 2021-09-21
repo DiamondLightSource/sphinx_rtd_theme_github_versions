@@ -1,20 +1,15 @@
-from sphinx_rtd_theme_github_versions import cli, hello
+from io import StringIO
+from pathlib import Path
+
+import pytest
+from sphinx.testing.util import SphinxTestApp
 
 
-def test_hello_class_formats_greeting() -> None:
-    inst = hello.HelloClass("person")
-    assert inst.format_greeting() == "Hello person"
-
-
-def test_hello_lots_defaults(capsys) -> None:
-    hello.say_hello_lots()
-    captured = capsys.readouterr()
-    assert captured.out == "Hello me\n" * 5
-    assert captured.err == ""
-
-
-def test_cli(capsys) -> None:
-    cli.main(["person", "--times=2"])
-    captured = capsys.readouterr()
-    assert captured.out == "Hello person\n" * 2
-    assert captured.err == ""
+@pytest.mark.sphinx("html", testroot="dls-defaults")
+def test_dls_defaults(app: SphinxTestApp, status: StringIO, warning: StringIO) -> None:
+    app.warningiserror = True
+    assert app.builder
+    app.builder.build_all()
+    content = open(Path(app.outdir) / "index.html").read()
+    print(content)
+    assert False

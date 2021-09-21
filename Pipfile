@@ -20,14 +20,10 @@ pytest-flake8 = "*"
 pytest-black = "*"
 flake8-isort = "*"
 isort = ">5.0"
-sphinx-rtd-theme = "*"
 
 [packages]
 # All other package requirements from setup.cfg
 sphinx_rtd_theme_github_versions = {editable = true,path = "."}
-# If the module or any of its dependencies depends on typing-extensions
-# then uncomment the following line
-#typing-extensions = "*"
 
 [scripts]
 tests = "python -m pytest"
