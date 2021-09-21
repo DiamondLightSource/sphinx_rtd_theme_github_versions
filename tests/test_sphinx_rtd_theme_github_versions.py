@@ -10,6 +10,8 @@ def test_dls_defaults(app: SphinxTestApp, status: StringIO, warning: StringIO) -
     app.warningiserror = True
     assert app.builder
     app.builder.build_all()
-    content = open(Path(app.outdir) / "index.html").read()
-    print(content)
-    assert False
+    html = open(Path(app.outdir) / "index.html").read()
+    assert "var versions = ['main', 'master'];" in html
+    assert (
+        '<div class="wy-side-nav-search"  style="background: rgb(7, 43, 93)" >' in html
+    )

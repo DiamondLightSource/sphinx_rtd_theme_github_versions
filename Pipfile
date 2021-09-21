@@ -19,6 +19,7 @@ pytest-mypy = "*"
 pytest-flake8 = "*"
 pytest-black = "*"
 flake8-isort = "*"
+types-docutils = "*"
 isort = ">5.0"
 
 [packages]

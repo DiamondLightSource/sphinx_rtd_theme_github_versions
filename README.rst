@@ -13,7 +13,7 @@ Documentation  https://dls-controls.github.io/sphinx_rtd_theme_github_versions
 Changelog      https://github.com/dls-controls/sphinx_rtd_theme_github_versions/blob/master/CHANGELOG.rst
 ============== ==============================================================
 
-TODO: add screenshot
+|screenshot|
 
 .. |code_ci| image:: https://github.com/dls-controls/sphinx_rtd_theme_github_versions/workflows/Code%20CI/badge.svg?branch=master
     :target: https://github.com/dls-controls/sphinx_rtd_theme_github_versions/actions?query=workflow%3A%22Code+CI%22
@@ -40,5 +40,7 @@ TODO: add screenshot
 ..
     Anything below this line is used when viewing README.rst and will be replaced
     when included in index.rst
+
+.. |screenshot| image:: https://raw.githubusercontent.com/dls-controls/sphinx_rtd_theme_github_versions/master/docs/images/screenshot.png
 
 See https://dls-controls.github.io/sphinx_rtd_theme_github_versions for more detailed documentation.

@@ -4,18 +4,7 @@
 # list see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-# -- Path setup --------------------------------------------------------------
-
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-import os
-import sys
-
-
-sys.path.insert(0, os.path.abspath(os.path.join(__file__, "..", "..")))
-
-import sphinx_rtd_theme_github_versions  # noqa
+import sphinx_rtd_theme_github_versions
 
 # -- General configuration ------------------------------------------------
 
@@ -55,7 +44,7 @@ nitpicky = True
 # generating warnings in "nitpicky mode". Note that type should include the
 # domain name if present. Example entries would be ('py:func', 'int') or
 # ('envvar', 'LD_LIBRARY_PATH').
-nitpick_ignore = [("py:func", "int")]
+nitpick_ignore = [("class", "str")]
 
 # Both the class’ and the __init__ method’s docstring are concatenated and
 # inserted into the main body of the autoclass directive
@@ -74,9 +63,6 @@ graphviz_output_format = "svg"
 # role, that is, for text marked up `like this`
 default_role = "any"
 
-# Add any paths that contain templates here, relative to this directory.
-templates_path = ["_templates"]
-
 # The suffix of source filenames.
 source_suffix = ".rst"
 
@@ -93,7 +79,11 @@ pygments_style = "sphinx"
 
 # This means you can link things like `str` and `asyncio` to the relevant
 # docs in the python documentation.
-intersphinx_mapping = dict(python=("https://docs.python.org/3/", None))
+intersphinx_mapping = dict(
+    python=("https://docs.python.org/3/", None),
+    sphinx=("https://www.sphinx-doc.org/en/master/", None),
+    sphinx_rtd_theme=("https://sphinx-rtd-theme.readthedocs.io/en/stable/", None),
+)
 
 # A dictionary of graphviz graph attributes for inheritance diagrams.
 inheritance_graph_attrs = dict(rankdir="TB")
@@ -109,7 +99,7 @@ rst_epilog = """
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "sphinx_rtd_theme"
+html_theme = "sphinx_rtd_theme_github_versions"
 
 # Options for the sphinx rtd theme, use DLS blue
 html_theme_options = dict(style_nav_header_background="rgb(7, 43, 93)")
@@ -131,3 +121,32 @@ html_css_files = ["theme_overrides.css"]
 # Logo
 html_logo = "images/dls-logo.svg"
 html_favicon = "images/dls-favicon.ico"
+
+
+# Extensions to theme docs
+# https://github.com/readthedocs/sphinx_rtd_theme/blob/1.0.0/docs/conf.py#L85-L110
+def setup(app):
+    from sphinx.domains.python import PyField
+    from sphinx.util.docfields import Field
+
+    app.add_object_type(
+        "confval",
+        "confval",
+        objname="configuration value",
+        indextemplate="pair: %s; configuration value",
+        doc_field_types=[
+            PyField(
+                "type",
+                label="Type",
+                has_arg=False,
+                names=("type",),
+                bodyrolename="class",
+            ),
+            Field(
+                "default",
+                label="Default",
+                has_arg=False,
+                names=("default",),
+            ),
+        ],
+    )
