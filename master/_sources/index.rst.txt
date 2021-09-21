@@ -1,6 +1,8 @@
 .. include:: ../README.rst
     :end-before: when included in index.rst
 
+.. |screenshot| image:: images/screenshot.png
+
 How the documentation is structured
 -----------------------------------
 
@@ -57,7 +59,7 @@ Technical reference material, for classes, methods, APIs, commands, and contribu
     :hidden:
 
     reference/contributing
-    Changelog <https://github.com/dls-controls/{{ cookiecutter.project_name }}/blob/master/CHANGELOG.rst>
+    Changelog <https://github.com/dls-controls/sphinx_rtd_theme_github_versions/blob/master/CHANGELOG.rst>
 
 .. rst-class:: endcolumns
 

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Installation Tutorial &mdash; sphinx_rtd_theme_github_versions 0.0+untagged.gc93a8ae documentation</title>
+  <title>Installation Tutorial &mdash; sphinx_rtd_theme_github_versions 0.0+untagged.ge543bbe documentation</title>
   
 
   
@@ -93,6 +93,7 @@
         
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
+  
             
             
               
@@ -104,6 +105,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#check-your-version-of-python">Check your version of python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#create-a-virtual-environment">Create a virtual environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installing-the-library">Installing the library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#including-in-sphinx-documentation">Including in Sphinx Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -118,11 +120,47 @@
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../reference/contributing.html">Contributing</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/dls-controls/{{ cookiecutter.project_name }}/blob/master/CHANGELOG.rst">Changelog</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/dls-controls/sphinx_rtd_theme_github_versions/blob/master/CHANGELOG.rst">Changelog</a></li>
 </ul>
 
             
           
+  <!-- Add versions for selected branches + tags -->
+  <p class="caption">
+    <span class="caption-text">Versions</span>
+  </p>
+  <ul id="versions"/>
+  <script>
+    // Add any branches to appear in the side pane here, tags will be added below
+    // Will only appear if docs are built and pushed in gh-pages
+    var versions = ['main', 'master'];
+    var dirs = new Set();
+    function addVersion(name) {
+      if (dirs.has(name)) {
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        a.href = 'https://dls-controls.github.io/sphinx_rtd_theme_github_versions/' + name;
+        a.innerText = name;
+        li.appendChild(a)
+        document.getElementById('versions').appendChild(li);
+      }
+    }
+    Promise.all([
+      // Find gh-pages directories and populate `dirs`
+      fetch("https://api.github.com/repos/dls-controls/sphinx_rtd_theme_github_versions/contents?ref=gh-pages")
+      .then(response => response.json())
+      .then(data => data.forEach(function(e) {
+        if (e.type == "dir") dirs.add(e.name);
+      })),
+      // Add tags to `versions`
+      fetch('https://api.github.com/repos/dls-controls/sphinx_rtd_theme_github_versions/tags')
+        .then(response => response.json())
+        .then(data => data.forEach(function(e) {
+          versions.push(e.name);
+        }))
+      ]).then(_ => versions.forEach(addVersion))
+  </script>
+
         </div>
         
       </div>
@@ -224,11 +262,14 @@ from github:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">git</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">dls</span><span class="o">-</span><span class="n">controls</span><span class="o">/</span><span class="n">sphinx_rtd_theme_github_versions</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
-<p>The library should now be installed and the commandline interface on your path.
-You can check the version that has been installed by typing:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx_rtd_theme_github_versions</span> <span class="o">--</span><span class="n">version</span>
+</div>
+<div class="section" id="including-in-sphinx-documentation">
+<h2>Including in Sphinx Documentation<a class="headerlink" href="#including-in-sphinx-documentation" title="Permalink to this headline">¶</a></h2>
+<p>Set the theme by declaring the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_theme" title="(in Sphinx v5.0.0+)"><code class="xref any docutils literal notranslate"><span class="pre">html_theme</span></code></a> in your <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;sphinx_rtd_theme_github_versions&quot;</span>
 </pre></div>
 </div>
+<p>See <a class="reference internal" href="../how-to/configure-the-theme.html"><span class="doc">Configure the theme</span></a> for more details on configuring the theme</p>
 </div>
 </div>
 

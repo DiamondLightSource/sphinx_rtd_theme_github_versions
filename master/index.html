@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>sphinx_rtd_theme_github_versions &mdash; sphinx_rtd_theme_github_versions 0.0+untagged.gc93a8ae documentation</title>
+  <title>sphinx_rtd_theme_github_versions &mdash; sphinx_rtd_theme_github_versions 0.0+untagged.ge543bbe documentation</title>
   
 
   
@@ -92,6 +92,7 @@
         
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
+  
             
             
               
@@ -112,11 +113,47 @@
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="reference/contributing.html">Contributing</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/dls-controls/{{ cookiecutter.project_name }}/blob/master/CHANGELOG.rst">Changelog</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/dls-controls/sphinx_rtd_theme_github_versions/blob/master/CHANGELOG.rst">Changelog</a></li>
 </ul>
 
             
           
+  <!-- Add versions for selected branches + tags -->
+  <p class="caption">
+    <span class="caption-text">Versions</span>
+  </p>
+  <ul id="versions"/>
+  <script>
+    // Add any branches to appear in the side pane here, tags will be added below
+    // Will only appear if docs are built and pushed in gh-pages
+    var versions = ['main', 'master'];
+    var dirs = new Set();
+    function addVersion(name) {
+      if (dirs.has(name)) {
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        a.href = 'https://dls-controls.github.io/sphinx_rtd_theme_github_versions/' + name;
+        a.innerText = name;
+        li.appendChild(a)
+        document.getElementById('versions').appendChild(li);
+      }
+    }
+    Promise.all([
+      // Find gh-pages directories and populate `dirs`
+      fetch("https://api.github.com/repos/dls-controls/sphinx_rtd_theme_github_versions/contents?ref=gh-pages")
+      .then(response => response.json())
+      .then(data => data.forEach(function(e) {
+        if (e.type == "dir") dirs.add(e.name);
+      })),
+      // Add tags to `versions`
+      fetch('https://api.github.com/repos/dls-controls/sphinx_rtd_theme_github_versions/tags')
+        .then(response => response.json())
+        .then(data => data.forEach(function(e) {
+          versions.push(e.name);
+        }))
+      ]).then(_ => versions.forEach(addVersion))
+  </script>
+
         </div>
         
       </div>
@@ -205,7 +242,7 @@ listing all versions of the documentation on github.io for the current repo</p>
 </tr>
 </tbody>
 </table>
-<p>TODO: add screenshot</p>
+<p><img alt="screenshot" src="_images/screenshot.png" /></p>
 <div class="section" id="how-the-documentation-is-structured">
 <h2>How the documentation is structured<a class="headerlink" href="#how-the-documentation-is-structured" title="Permalink to this headline">¶</a></h2>
 <p>Documentation is split into four categories, accessible from links in the side-bar.</p>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>How it works &mdash; sphinx_rtd_theme_github_versions 0.0+untagged.gc93a8ae documentation</title>
+  <title>How it works &mdash; sphinx_rtd_theme_github_versions 0.0+untagged.ge543bbe documentation</title>
   
 
   
@@ -93,6 +93,7 @@
         
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
+  
             
             
               
@@ -113,11 +114,47 @@
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../reference/contributing.html">Contributing</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/dls-controls/{{ cookiecutter.project_name }}/blob/master/CHANGELOG.rst">Changelog</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/dls-controls/sphinx_rtd_theme_github_versions/blob/master/CHANGELOG.rst">Changelog</a></li>
 </ul>
 
             
           
+  <!-- Add versions for selected branches + tags -->
+  <p class="caption">
+    <span class="caption-text">Versions</span>
+  </p>
+  <ul id="versions"/>
+  <script>
+    // Add any branches to appear in the side pane here, tags will be added below
+    // Will only appear if docs are built and pushed in gh-pages
+    var versions = ['main', 'master'];
+    var dirs = new Set();
+    function addVersion(name) {
+      if (dirs.has(name)) {
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        a.href = 'https://dls-controls.github.io/sphinx_rtd_theme_github_versions/' + name;
+        a.innerText = name;
+        li.appendChild(a)
+        document.getElementById('versions').appendChild(li);
+      }
+    }
+    Promise.all([
+      // Find gh-pages directories and populate `dirs`
+      fetch("https://api.github.com/repos/dls-controls/sphinx_rtd_theme_github_versions/contents?ref=gh-pages")
+      .then(response => response.json())
+      .then(data => data.forEach(function(e) {
+        if (e.type == "dir") dirs.add(e.name);
+      })),
+      // Add tags to `versions`
+      fetch('https://api.github.com/repos/dls-controls/sphinx_rtd_theme_github_versions/tags')
+        .then(response => response.json())
+        .then(data => data.forEach(function(e) {
+          versions.push(e.name);
+        }))
+      ]).then(_ => versions.forEach(addVersion))
+  </script>
+
         </div>
         
       </div>
@@ -183,7 +220,16 @@
             
   <div class="section" id="how-it-works">
 <h1>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h1>
-<p>Explain how the version fetching works</p>
+<p>The theme works by injecting some javascript that populates the version list
+at runtime. This javascript does the following:</p>
+<ul class="simple">
+<li><p>Fetch the set of all directories in the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch of the <code class="docutils literal notranslate"><span class="pre">project</span></code> repo in <a class="reference internal" href="../how-to/configure-the-theme.html#confval-github_org"><code class="xref any std std-confval docutils literal notranslate"><span class="pre">github_org</span></code></a></p></li>
+<li><p>Take the <a class="reference internal" href="../how-to/configure-the-theme.html#confval-versions_branches"><code class="xref any std std-confval docutils literal notranslate"><span class="pre">versions_branches</span></code></a>, and add the names of all the tags in that repo</p></li>
+<li><p>Make a link to github.io for each version that has a directory in <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code></p></li>
+</ul>
+<p>You should make sure that there are appropriately named branches in the
+<code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch by doing something like
+<a class="reference external" href="https://github.com/dls-controls/sphinx_rtd_theme_github_versions/blob/master/.github/workflows/docs.yml">https://github.com/dls-controls/sphinx_rtd_theme_github_versions/blob/master/.github/workflows/docs.yml</a></p>
 </div>
 
 

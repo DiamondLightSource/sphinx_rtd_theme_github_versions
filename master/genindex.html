@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Index &mdash; sphinx_rtd_theme_github_versions 0.0+untagged.gc93a8ae documentation</title>
+  <title>Index &mdash; sphinx_rtd_theme_github_versions 0.0+untagged.ge543bbe documentation</title>
   
 
   
@@ -91,6 +91,7 @@
         
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
+  
             
             
               
@@ -111,11 +112,47 @@
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="reference/contributing.html">Contributing</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/dls-controls/{{ cookiecutter.project_name }}/blob/master/CHANGELOG.rst">Changelog</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/dls-controls/sphinx_rtd_theme_github_versions/blob/master/CHANGELOG.rst">Changelog</a></li>
 </ul>
 
             
           
+  <!-- Add versions for selected branches + tags -->
+  <p class="caption">
+    <span class="caption-text">Versions</span>
+  </p>
+  <ul id="versions"/>
+  <script>
+    // Add any branches to appear in the side pane here, tags will be added below
+    // Will only appear if docs are built and pushed in gh-pages
+    var versions = ['main', 'master'];
+    var dirs = new Set();
+    function addVersion(name) {
+      if (dirs.has(name)) {
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        a.href = 'https://dls-controls.github.io/sphinx_rtd_theme_github_versions/' + name;
+        a.innerText = name;
+        li.appendChild(a)
+        document.getElementById('versions').appendChild(li);
+      }
+    }
+    Promise.all([
+      // Find gh-pages directories and populate `dirs`
+      fetch("https://api.github.com/repos/dls-controls/sphinx_rtd_theme_github_versions/contents?ref=gh-pages")
+      .then(response => response.json())
+      .then(data => data.forEach(function(e) {
+        if (e.type == "dir") dirs.add(e.name);
+      })),
+      // Add tags to `versions`
+      fetch('https://api.github.com/repos/dls-controls/sphinx_rtd_theme_github_versions/tags')
+        .then(response => response.json())
+        .then(data => data.forEach(function(e) {
+          versions.push(e.name);
+        }))
+      ]).then(_ => versions.forEach(addVersion))
+  </script>
+
         </div>
         
       </div>
@@ -181,8 +218,52 @@
 <h1 id="index">Index</h1>
 
 <div class="genindex-jumpbox">
+ <a href="#C"><strong>C</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#V"><strong>V</strong></a>
  
 </div>
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    configuration value
+
+      <ul>
+        <li><a href="how-to/configure-the-theme.html#confval-github_org">github_org</a>
+</li>
+        <li><a href="how-to/configure-the-theme.html#confval-versions_branches">versions_branches</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    github_org
+
+      <ul>
+        <li><a href="how-to/configure-the-theme.html#confval-github_org">configuration value</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    versions_branches
+
+      <ul>
+        <li><a href="how-to/configure-the-theme.html#confval-versions_branches">configuration value</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
 
 
            </div>
