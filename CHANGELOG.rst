@@ -13,11 +13,20 @@ Unreleased_
 Nothing yet
 
 
+0.2_ - 2021-09-22
+-----------------
+
+Fixed:
+
+- Fix package data to include theme.conf
+
+
 0.1_ - 2021-09-21
 -----------------
 
 Initial release
 
 
-.. _Unreleased: https://github.com/dls-controls/sphinx_rtd_theme_github_versions/compare/0.1...HEAD
-.. _0.1: https://github.com/dls-controls/sphinx_rtd_theme_github_versions/releases/tag/0.1
+.. _Unreleased: ../../compare/0.2...HEAD
+.. _0.2: ../../compare/0.1...0.2
+.. _0.1: ../../releases/tag/0.1
