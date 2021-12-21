@@ -9,17 +9,17 @@ on:
       - "*"
   pull_request:
   schedule:
-    # Run every Monday at 8am
+    # Run every Monday at 8am to check latest versions of dependencies
     - cron: '0 8 * * MON'
 
 jobs:
-  static:
+  lint:
     runs-on: "ubuntu-latest"
     steps:
       - name: Run black, flake8, mypy
         uses: dls-controls/pipenv-run-action@v1
         with:
-          pipenv-run: pre-commit run --all-files --show-diff-on-failure --color=always
+          pipenv-run: lint
 
   wheel:
     runs-on: "ubuntu-latest"
@@ -82,7 +82,7 @@ jobs:
           files: cov.xml
 
   release:
-    needs: [static, wheel, test]
+    needs: [lint, wheel, test]
     runs-on: ubuntu-latest
     # upload to PyPI and make a release on every tag
     if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')

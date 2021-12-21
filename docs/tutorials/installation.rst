@@ -8,7 +8,7 @@ Installation Tutorial
     inside DLS, they are intended for external use.
 
     If you want to contribute to the library itself, please follow
-    the `contributing` instructions.
+    the `../reference/contributing` instructions.
 
 
 Check your version of python
