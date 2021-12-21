@@ -1,13 +1,30 @@
 How it works
 ============
 
-The theme works by injecting some javascript that populates the version list
-at runtime. This javascript does the following:
+The theme comes in two parts:
 
-- Fetch the set of all directories in the ``gh-pages`` branch of the ``project`` repo in `github_org`
-- Take the `versions_branches`, and add the names of all the tags in that repo
-- Make a link to github.io for each version that has a directory in ``gh-pages``
+- A commandline script that generates a ``versions.txt`` file at documentation
+  build time
+- A bit of javascript that populates the versions section of the
+  sidebar at runtime
 
-You should make sure that there are appropriately named branches in the
-``gh-pages`` branch by doing something like
+Commandline script
+------------------
+
+This works by writing a ``versions.txt`` file alongside the build documentation
+directories that are pushed to the ``gh-pages`` branch. These are ordered:
+
+- main or master branch
+- tags in descending order
+- other branches
+
+This generation should be run at CI time using something like this:
+
 https://github.com/dls-controls/sphinx_rtd_theme_github_versions/blob/master/.github/workflows/docs.yml
+
+Javascript population
+---------------------
+
+This works by fetching ``../versions.txt`` and populating an ``Other Versions``
+section of the side-bar with the contents. If the fetch fails the that section
+is hidden.
