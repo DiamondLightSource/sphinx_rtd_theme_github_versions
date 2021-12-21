@@ -42,6 +42,10 @@ from github::
 
     python3 -m pip install git+git://github.com/dls-controls/sphinx_rtd_theme_github_versions.git
 
+The library should now be installed and the commandline interface on your path.
+You can check the version that has been installed by typing::
+
+    sphinx_rtd_theme_github_versions --version
 
 Including in Sphinx Documentation
 ---------------------------------
@@ -53,3 +57,12 @@ Set the theme by declaring the `html_theme` in your ``conf.py`` file:
     html_theme = "sphinx_rtd_theme_github_versions"
 
 See `../how-to/configure-the-theme` for more details on configuring the theme
+
+Deployment
+----------
+
+At development time you will not see any version section as there is only one
+version of the documentation. For it to be active there must be a
+``versions.txt`` file alongside the built documentation.
+
+See `../explanations/how-it-works` for details on how to add this.
