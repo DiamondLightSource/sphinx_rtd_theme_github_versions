@@ -10,7 +10,9 @@ and this project adheres to `Semantic Versioning <https://semver.org/spec/v2.0.0
 Unreleased_
 -----------
 
-Nothing yet
+Changed:
+
+- Other versions from static versions.txt rather than Github API
 
 
 0.2_ - 2021-09-22
