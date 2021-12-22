@@ -26,7 +26,7 @@ jobs:
 
       - name: Move to versioned directory
         # e.g. master or 0.1.2
-        run: mv build/html ".github/pages/${GITHUB_REF##*/}"
+        run: mv build/html ".github/pages/$GITHUB_REF_NAME"
 
       - name: Write versions.txt
         run: pipenv run sphinx_rtd_theme_github_versions .github/pages

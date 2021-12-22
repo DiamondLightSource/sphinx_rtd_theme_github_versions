@@ -858,6 +858,13 @@
             "markers": "python_version < '3.8' and python_version < '3.8'",
             "version": "==1.4.3"
         },
+        "types-docutils": {
+            "hashes": [
+                "sha256:6a7473d845fb15266d0a1742a5dfa2cf5240ddd8a64e4de9646f88a72c424c00",
+                "sha256:e7dc9db04f6dcc78fd7d903b99d9b4dc3c8b296e3f151114207a8f102e84361e"
+            ],
+            "version": "==0.17.1"
+        },
         "typing-extensions": {
             "hashes": [
                 "sha256:49f75d16ff11f1cd258e1b988ccff82a3ca5570217d7ad8c5f48205dd99a677e",

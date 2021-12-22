@@ -85,7 +85,7 @@ jobs:
     needs: [lint, wheel, test]
     runs-on: ubuntu-latest
     # upload to PyPI and make a release on every tag
-    if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
     steps:
       - uses: actions/download-artifact@v2
         with:

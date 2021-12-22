@@ -10,7 +10,7 @@ sphinx_rtd_theme_github_versions = {editable = true, extras = ["dev"], path = ".
 sphinx_rtd_theme_github_versions = {editable = true, path = "."}
 
 [scripts]
-lint = "pre-commit run --all-files --show-diff-on-failure --color=always"
+lint = "pre-commit run --all-files --show-diff-on-failure --color=always -v"
 tests = "pytest"
 docs = "sphinx-build -EWT --keep-going docs build/html"
 # Delete any files that git ignore hides from us
