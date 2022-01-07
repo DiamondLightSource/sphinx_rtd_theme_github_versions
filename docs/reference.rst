@@ -9,4 +9,4 @@ Practical step-by-step guides for the more experienced user.
     :caption: Reference
 
     reference/contributing
-    Changelog <https://github.com/dls-controls/sphinx_rtd_theme_github_versions/blob/master/CHANGELOG.rst>
+    Releases <https://github.com/dls-controls/sphinx_rtd_theme_github_versions/releases>

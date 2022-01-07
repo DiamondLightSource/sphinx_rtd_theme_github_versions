@@ -10,7 +10,7 @@ listing all versions of the documentation on github.io for the current repo
 PyPI           ``pip install sphinx_rtd_theme_github_versions``
 Source code    https://github.com/dls-controls/sphinx_rtd_theme_github_versions
 Documentation  https://dls-controls.github.io/sphinx_rtd_theme_github_versions
-Changelog      https://github.com/dls-controls/sphinx_rtd_theme_github_versions/blob/master/CHANGELOG.rst
+Releases       https://github.com/dls-controls/sphinx_rtd_theme_github_versions/releases
 ============== ==============================================================
 
 |screenshot|
