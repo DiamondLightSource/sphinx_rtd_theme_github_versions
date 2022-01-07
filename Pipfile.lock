@@ -175,10 +175,10 @@
         },
         "sphinx": {
             "hashes": [
-                "sha256:94078db9184491e15bce0a56d9186e0aec95f16ac20b12d00e06d4e36f1058a6",
-                "sha256:98a535c62a4fcfcc362528592f69b26f7caec587d32cd55688db580be0287ae0"
+                "sha256:0a8836751a68306b3fe97ecbe44db786f8479c3bf4b80e3a7f5c838657b4698c",
+                "sha256:6a11ea5dd0bdb197f9c2abc2e0ce73e01340464feaece525e64036546d24c851"
             ],
-            "version": "==4.2.0"
+            "version": "==4.3.2"
         },
         "sphinx-rtd-theme": {
             "hashes": [
@@ -743,10 +743,10 @@
         },
         "sphinx": {
             "hashes": [
-                "sha256:94078db9184491e15bce0a56d9186e0aec95f16ac20b12d00e06d4e36f1058a6",
-                "sha256:98a535c62a4fcfcc362528592f69b26f7caec587d32cd55688db580be0287ae0"
+                "sha256:0a8836751a68306b3fe97ecbe44db786f8479c3bf4b80e3a7f5c838657b4698c",
+                "sha256:6a11ea5dd0bdb197f9c2abc2e0ce73e01340464feaece525e64036546d24c851"
             ],
-            "version": "==4.2.0"
+            "version": "==4.3.2"
         },
         "sphinx-rtd-theme": {
             "hashes": [
@@ -860,10 +860,10 @@
         },
         "types-docutils": {
             "hashes": [
-                "sha256:6a7473d845fb15266d0a1742a5dfa2cf5240ddd8a64e4de9646f88a72c424c00",
-                "sha256:e7dc9db04f6dcc78fd7d903b99d9b4dc3c8b296e3f151114207a8f102e84361e"
+                "sha256:1341a6efeae4fdc2021278e23f6a2d09b80b7101f4eef0a6b057a4e35134c953",
+                "sha256:a05a17245033f7bf4ba74438055ba37ae4c8223c55d08fd9913231a6ab992fd5"
             ],
-            "version": "==0.17.1"
+            "version": "==0.17.3"
         },
         "typing-extensions": {
             "hashes": [
