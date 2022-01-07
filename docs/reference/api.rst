@@ -1,24 +1,24 @@
 API
 ===
 
-.. automodule:: dls_python3_skeleton
+.. automodule:: sphinx_rtd_theme_github_versions
 
-    ``dls_python3_skeleton``
+    ``sphinx_rtd_theme_github_versions``
     -----------------------------------
 
-This is the internal API reference for dls_python3_skeleton
+This is the internal API reference for sphinx_rtd_theme_github_versions
 
 You can mix verbose text with docstring and signature extraction by
 using ``autoclass`` and ``autofunction`` directives instead of
 ``automodule`` below.
 
-.. data:: dls_python3_skeleton.__version__
+.. data:: sphinx_rtd_theme_github_versions.__version__
     :type: str
 
     Version number as calculated by https://github.com/dls-controls/versiongit
 
-.. automodule:: dls_python3_skeleton.hello
+.. automodule:: sphinx_rtd_theme_github_versions.hello
     :members:
 
-    ``dls_python3_skeleton.hello``
+    ``sphinx_rtd_theme_github_versions.hello``
     -----------------------------------------
