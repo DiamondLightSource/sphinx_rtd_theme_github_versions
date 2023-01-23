@@ -8,23 +8,23 @@ listing all versions of the documentation on github.io for the current repo
 
 ============== ==============================================================
 PyPI           ``pip install sphinx_rtd_theme_github_versions``
-Source code    https://github.com/dls-controls/sphinx_rtd_theme_github_versions
-Documentation  https://dls-controls.github.io/sphinx_rtd_theme_github_versions
-Releases       https://github.com/dls-controls/sphinx_rtd_theme_github_versions/releases
+Source code    https://github.com/DiamondLightSource/sphinx_rtd_theme_github_versions
+Documentation  https://DiamondLightSource.github.io/sphinx_rtd_theme_github_versions
+Releases       https://github.com/DiamondLightSource/sphinx_rtd_theme_github_versions/releases
 ============== ==============================================================
 
 |screenshot|
 
-.. |code_ci| image:: https://github.com/dls-controls/sphinx_rtd_theme_github_versions/workflows/Code%20CI/badge.svg?branch=master
-    :target: https://github.com/dls-controls/sphinx_rtd_theme_github_versions/actions?query=workflow%3A%22Code+CI%22
+.. |code_ci| image:: https://github.com/DiamondLightSource/sphinx_rtd_theme_github_versions/workflows/Code%20CI/badge.svg?branch=master
+    :target: https://github.com/DiamondLightSource/sphinx_rtd_theme_github_versions/actions?query=workflow%3A%22Code+CI%22
     :alt: Code CI
 
-.. |docs_ci| image:: https://github.com/dls-controls/sphinx_rtd_theme_github_versions/workflows/Docs%20CI/badge.svg?branch=master
-    :target: https://github.com/dls-controls/sphinx_rtd_theme_github_versions/actions?query=workflow%3A%22Docs+CI%22
+.. |docs_ci| image:: https://github.com/DiamondLightSource/sphinx_rtd_theme_github_versions/workflows/Docs%20CI/badge.svg?branch=master
+    :target: https://github.com/DiamondLightSource/sphinx_rtd_theme_github_versions/actions?query=workflow%3A%22Docs+CI%22
     :alt: Docs CI
 
-.. |coverage| image:: https://codecov.io/gh/dls-controls/sphinx_rtd_theme_github_versions/branch/master/graph/badge.svg
-    :target: https://codecov.io/gh/dls-controls/sphinx_rtd_theme_github_versions
+.. |coverage| image:: https://codecov.io/gh/DiamondLightSource/sphinx_rtd_theme_github_versions/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/DiamondLightSource/sphinx_rtd_theme_github_versions
     :alt: Test Coverage
 
 .. |pypi_version| image:: https://img.shields.io/pypi/v/sphinx_rtd_theme_github_versions.svg
@@ -41,6 +41,6 @@ Releases       https://github.com/dls-controls/sphinx_rtd_theme_github_versions/
     Anything below this line is used when viewing README.rst and will be replaced
     when included in index.rst
 
-.. |screenshot| image:: https://raw.githubusercontent.com/dls-controls/sphinx_rtd_theme_github_versions/master/docs/images/screenshot.png
+.. |screenshot| image:: https://raw.githubusercontent.com/DiamondLightSource/sphinx_rtd_theme_github_versions/master/docs/images/screenshot.png
 
-See https://dls-controls.github.io/sphinx_rtd_theme_github_versions for more detailed documentation.
+See https://DiamondLightSource.github.io/sphinx_rtd_theme_github_versions for more detailed documentation.

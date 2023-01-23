@@ -20,7 +20,7 @@ directories that are pushed to the ``gh-pages`` branch. These are ordered:
 
 This generation should be run at CI time using something like this:
 
-https://github.com/dls-controls/sphinx_rtd_theme_github_versions/blob/master/.github/workflows/docs.yml
+https://github.com/DiamondLightSource/sphinx_rtd_theme_github_versions/blob/master/.github/workflows/docs.yml
 
 Javascript population
 ---------------------
