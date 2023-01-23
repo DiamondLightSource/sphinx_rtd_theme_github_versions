@@ -9,4 +9,4 @@ Practical step-by-step guides for the more experienced user.
     :caption: Reference
 
     reference/contributing
-    Releases <https://github.com/dls-controls/sphinx_rtd_theme_github_versions/releases>
+    Releases <https://github.com/DiamondLightSource/sphinx_rtd_theme_github_versions/releases>

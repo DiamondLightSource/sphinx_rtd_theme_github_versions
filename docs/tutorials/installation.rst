@@ -40,7 +40,7 @@ You can now use ``pip`` to install the library::
 If you require a feature that is not currently released you can also install
 from github::
 
-    python3 -m pip install git+git://github.com/dls-controls/sphinx_rtd_theme_github_versions.git
+    python3 -m pip install git+git://github.com/DiamondLightSource/sphinx_rtd_theme_github_versions.git
 
 The library should now be installed and the commandline interface on your path.
 You can check the version that has been installed by typing::
